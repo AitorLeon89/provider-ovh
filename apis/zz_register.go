@@ -14,17 +14,165 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1 "github.com/upbound/upjet-provider-template/apis/null/v1alpha1"
-	v1alpha1apis "github.com/upbound/upjet-provider-template/apis/v1alpha1"
-	v1beta1 "github.com/upbound/upjet-provider-template/apis/v1beta1"
+	v1alpha1 "github.com/AitorLeon89/provider-ovh/apis/cloudproject/v1alpha1"
+	v1alpha1cloudprojectcontainerregistry "github.com/AitorLeon89/provider-ovh/apis/cloudprojectcontainerregistry/v1alpha1"
+	v1alpha1cloudprojectcontainerregistryoidc "github.com/AitorLeon89/provider-ovh/apis/cloudprojectcontainerregistryoidc/v1alpha1"
+	v1alpha1cloudprojectcontainerregistryuser "github.com/AitorLeon89/provider-ovh/apis/cloudprojectcontainerregistryuser/v1alpha1"
+	v1alpha1cloudprojectdatabase "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabase/v1alpha1"
+	v1alpha1cloudprojectdatabase_user "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabase_user/v1alpha1"
+	v1alpha1cloudprojectdatabasedatabase "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabasedatabase/v1alpha1"
+	v1alpha1cloudprojectdatabaseintegration "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabaseintegration/v1alpha1"
+	v1alpha1cloudprojectdatabaseiprestriction "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabaseiprestriction/v1alpha1"
+	v1alpha1cloudprojectdatabasekafkaacl "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabasekafkaacl/v1alpha1"
+	v1alpha1cloudprojectdatabasekafkaschemaregistryacl "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabasekafkaschemaregistryacl/v1alpha1"
+	v1alpha1cloudprojectdatabasekafkatopic "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabasekafkatopic/v1alpha1"
+	v1alpha1cloudprojectdatabasem3dbnamespace "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabasem3dbnamespace/v1alpha1"
+	v1alpha1cloudprojectdatabasem3dbuser "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabasem3dbuser/v1alpha1"
+	v1alpha1cloudprojectdatabasemongodbuser "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabasemongodbuser/v1alpha1"
+	v1alpha1cloudprojectdatabaseopensearchpattern "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabaseopensearchpattern/v1alpha1"
+	v1alpha1cloudprojectdatabaseopensearchuser "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabaseopensearchuser/v1alpha1"
+	v1alpha1cloudprojectdatabasepostgresqluser "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabasepostgresqluser/v1alpha1"
+	v1alpha1cloudprojectdatabaseredisuser "github.com/AitorLeon89/provider-ovh/apis/cloudprojectdatabaseredisuser/v1alpha1"
+	v1alpha1cloudprojectfailoveripattach "github.com/AitorLeon89/provider-ovh/apis/cloudprojectfailoveripattach/v1alpha1"
+	v1alpha1cloudprojectkube "github.com/AitorLeon89/provider-ovh/apis/cloudprojectkube/v1alpha1"
+	v1alpha1cloudprojectkubeiprestrictions "github.com/AitorLeon89/provider-ovh/apis/cloudprojectkubeiprestrictions/v1alpha1"
+	v1alpha1cloudprojectkubenodepool "github.com/AitorLeon89/provider-ovh/apis/cloudprojectkubenodepool/v1alpha1"
+	v1alpha1cloudprojectkubeoidc "github.com/AitorLeon89/provider-ovh/apis/cloudprojectkubeoidc/v1alpha1"
+	v1alpha1cloudprojectnetworkprivate "github.com/AitorLeon89/provider-ovh/apis/cloudprojectnetworkprivate/v1alpha1"
+	v1alpha1cloudprojectnetworkprivatesubnet "github.com/AitorLeon89/provider-ovh/apis/cloudprojectnetworkprivatesubnet/v1alpha1"
+	v1alpha1cloudprojectregionstoragepresign "github.com/AitorLeon89/provider-ovh/apis/cloudprojectregionstoragepresign/v1alpha1"
+	v1alpha1cloudprojectuser "github.com/AitorLeon89/provider-ovh/apis/cloudprojectuser/v1alpha1"
+	v1alpha1cloudprojectusers3credential "github.com/AitorLeon89/provider-ovh/apis/cloudprojectusers3credential/v1alpha1"
+	v1alpha1cloudprojectusers3policy "github.com/AitorLeon89/provider-ovh/apis/cloudprojectusers3policy/v1alpha1"
+	v1alpha1cloudprojectworkflowbackup "github.com/AitorLeon89/provider-ovh/apis/cloudprojectworkflowbackup/v1alpha1"
+	v1alpha1dbaaslogscluster "github.com/AitorLeon89/provider-ovh/apis/dbaaslogscluster/v1alpha1"
+	v1alpha1dbaaslogsinput "github.com/AitorLeon89/provider-ovh/apis/dbaaslogsinput/v1alpha1"
+	v1alpha1dedicatedcephacl "github.com/AitorLeon89/provider-ovh/apis/dedicatedcephacl/v1alpha1"
+	v1alpha1dedicatednashapartition "github.com/AitorLeon89/provider-ovh/apis/dedicatednashapartition/v1alpha1"
+	v1alpha1dedicatednashapartitionaccess "github.com/AitorLeon89/provider-ovh/apis/dedicatednashapartitionaccess/v1alpha1"
+	v1alpha1dedicatednashapartitionsnapshot "github.com/AitorLeon89/provider-ovh/apis/dedicatednashapartitionsnapshot/v1alpha1"
+	v1alpha1dedicatedserverinstalltask "github.com/AitorLeon89/provider-ovh/apis/dedicatedserverinstalltask/v1alpha1"
+	v1alpha1dedicatedserverreboottask "github.com/AitorLeon89/provider-ovh/apis/dedicatedserverreboottask/v1alpha1"
+	v1alpha1dedicatedserverupdate "github.com/AitorLeon89/provider-ovh/apis/dedicatedserverupdate/v1alpha1"
+	v1alpha1domainzone "github.com/AitorLeon89/provider-ovh/apis/domainzone/v1alpha1"
+	v1alpha1domainzoneredirection "github.com/AitorLeon89/provider-ovh/apis/domainzoneredirection/v1alpha1"
+	v1alpha1hostingprivatedatabasedatabase "github.com/AitorLeon89/provider-ovh/apis/hostingprivatedatabasedatabase/v1alpha1"
+	v1alpha1hostingprivatedatabaseuser "github.com/AitorLeon89/provider-ovh/apis/hostingprivatedatabaseuser/v1alpha1"
+	v1alpha1hostingprivatedatabaseusergrant "github.com/AitorLeon89/provider-ovh/apis/hostingprivatedatabaseusergrant/v1alpha1"
+	v1alpha1hostingprivatedatabasewhitelist "github.com/AitorLeon89/provider-ovh/apis/hostingprivatedatabasewhitelist/v1alpha1"
+	v1alpha1iampolicy "github.com/AitorLeon89/provider-ovh/apis/iampolicy/v1alpha1"
+	v1alpha1iploadbalancing "github.com/AitorLeon89/provider-ovh/apis/iploadbalancing/v1alpha1"
+	v1alpha1iploadbalancinghttpfarm "github.com/AitorLeon89/provider-ovh/apis/iploadbalancinghttpfarm/v1alpha1"
+	v1alpha1iploadbalancinghttpfarmserver "github.com/AitorLeon89/provider-ovh/apis/iploadbalancinghttpfarmserver/v1alpha1"
+	v1alpha1iploadbalancinghttpfrontend "github.com/AitorLeon89/provider-ovh/apis/iploadbalancinghttpfrontend/v1alpha1"
+	v1alpha1iploadbalancinghttproute "github.com/AitorLeon89/provider-ovh/apis/iploadbalancinghttproute/v1alpha1"
+	v1alpha1iploadbalancinghttprouterule "github.com/AitorLeon89/provider-ovh/apis/iploadbalancinghttprouterule/v1alpha1"
+	v1alpha1iploadbalancingrefresh "github.com/AitorLeon89/provider-ovh/apis/iploadbalancingrefresh/v1alpha1"
+	v1alpha1iploadbalancingtcpfarm "github.com/AitorLeon89/provider-ovh/apis/iploadbalancingtcpfarm/v1alpha1"
+	v1alpha1iploadbalancingtcpfarmserver "github.com/AitorLeon89/provider-ovh/apis/iploadbalancingtcpfarmserver/v1alpha1"
+	v1alpha1iploadbalancingtcpfrontend "github.com/AitorLeon89/provider-ovh/apis/iploadbalancingtcpfrontend/v1alpha1"
+	v1alpha1iploadbalancingtcproute "github.com/AitorLeon89/provider-ovh/apis/iploadbalancingtcproute/v1alpha1"
+	v1alpha1iploadbalancingtcprouterule "github.com/AitorLeon89/provider-ovh/apis/iploadbalancingtcprouterule/v1alpha1"
+	v1alpha1iploadbalancingvracknetwork "github.com/AitorLeon89/provider-ovh/apis/iploadbalancingvracknetwork/v1alpha1"
+	v1alpha1ipreverse "github.com/AitorLeon89/provider-ovh/apis/ipreverse/v1alpha1"
+	v1alpha1ipservice "github.com/AitorLeon89/provider-ovh/apis/ipservice/v1alpha1"
+	v1alpha1meidentitygroup "github.com/AitorLeon89/provider-ovh/apis/meidentitygroup/v1alpha1"
+	v1alpha1meidentityuser "github.com/AitorLeon89/provider-ovh/apis/meidentityuser/v1alpha1"
+	v1alpha1meinstallationtemplate "github.com/AitorLeon89/provider-ovh/apis/meinstallationtemplate/v1alpha1"
+	v1alpha1meinstallationtemplatepartitionscheme "github.com/AitorLeon89/provider-ovh/apis/meinstallationtemplatepartitionscheme/v1alpha1"
+	v1alpha1meinstallationtemplatepartitionschemehardwareraid "github.com/AitorLeon89/provider-ovh/apis/meinstallationtemplatepartitionschemehardwareraid/v1alpha1"
+	v1alpha1meinstallationtemplatepartitionschemepartition "github.com/AitorLeon89/provider-ovh/apis/meinstallationtemplatepartitionschemepartition/v1alpha1"
+	v1alpha1meipxescript "github.com/AitorLeon89/provider-ovh/apis/meipxescript/v1alpha1"
+	v1alpha1messhkey "github.com/AitorLeon89/provider-ovh/apis/messhkey/v1alpha1"
+	v1alpha1apis "github.com/AitorLeon89/provider-ovh/apis/v1alpha1"
+	v1beta1 "github.com/AitorLeon89/provider-ovh/apis/v1beta1"
+	v1alpha1vrack "github.com/AitorLeon89/provider-ovh/apis/vrack/v1alpha1"
+	v1alpha1vrackdedicatedserver "github.com/AitorLeon89/provider-ovh/apis/vrackdedicatedserver/v1alpha1"
+	v1alpha1vrackdedicatedserverinterface "github.com/AitorLeon89/provider-ovh/apis/vrackdedicatedserverinterface/v1alpha1"
+	v1alpha1vrackip "github.com/AitorLeon89/provider-ovh/apis/vrackip/v1alpha1"
+	v1alpha1vrackiploadbalancing "github.com/AitorLeon89/provider-ovh/apis/vrackiploadbalancing/v1alpha1"
 )
 
 func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
 		v1alpha1.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectcontainerregistry.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectcontainerregistryoidc.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectcontainerregistryuser.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabase.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabase_user.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabasedatabase.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabaseintegration.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabaseiprestriction.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabasekafkaacl.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabasekafkaschemaregistryacl.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabasekafkatopic.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabasem3dbnamespace.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabasem3dbuser.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabasemongodbuser.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabaseopensearchpattern.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabaseopensearchuser.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabasepostgresqluser.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectdatabaseredisuser.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectfailoveripattach.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectkube.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectkubeiprestrictions.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectkubenodepool.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectkubeoidc.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectnetworkprivate.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectnetworkprivatesubnet.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectregionstoragepresign.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectuser.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectusers3credential.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectusers3policy.SchemeBuilder.AddToScheme,
+		v1alpha1cloudprojectworkflowbackup.SchemeBuilder.AddToScheme,
+		v1alpha1dbaaslogscluster.SchemeBuilder.AddToScheme,
+		v1alpha1dbaaslogsinput.SchemeBuilder.AddToScheme,
+		v1alpha1dedicatedcephacl.SchemeBuilder.AddToScheme,
+		v1alpha1dedicatednashapartition.SchemeBuilder.AddToScheme,
+		v1alpha1dedicatednashapartitionaccess.SchemeBuilder.AddToScheme,
+		v1alpha1dedicatednashapartitionsnapshot.SchemeBuilder.AddToScheme,
+		v1alpha1dedicatedserverinstalltask.SchemeBuilder.AddToScheme,
+		v1alpha1dedicatedserverreboottask.SchemeBuilder.AddToScheme,
+		v1alpha1dedicatedserverupdate.SchemeBuilder.AddToScheme,
+		v1alpha1domainzone.SchemeBuilder.AddToScheme,
+		v1alpha1domainzoneredirection.SchemeBuilder.AddToScheme,
+		v1alpha1hostingprivatedatabasedatabase.SchemeBuilder.AddToScheme,
+		v1alpha1hostingprivatedatabaseuser.SchemeBuilder.AddToScheme,
+		v1alpha1hostingprivatedatabaseusergrant.SchemeBuilder.AddToScheme,
+		v1alpha1hostingprivatedatabasewhitelist.SchemeBuilder.AddToScheme,
+		v1alpha1iampolicy.SchemeBuilder.AddToScheme,
+		v1alpha1iploadbalancing.SchemeBuilder.AddToScheme,
+		v1alpha1iploadbalancinghttpfarm.SchemeBuilder.AddToScheme,
+		v1alpha1iploadbalancinghttpfarmserver.SchemeBuilder.AddToScheme,
+		v1alpha1iploadbalancinghttpfrontend.SchemeBuilder.AddToScheme,
+		v1alpha1iploadbalancinghttproute.SchemeBuilder.AddToScheme,
+		v1alpha1iploadbalancinghttprouterule.SchemeBuilder.AddToScheme,
+		v1alpha1iploadbalancingrefresh.SchemeBuilder.AddToScheme,
+		v1alpha1iploadbalancingtcpfarm.SchemeBuilder.AddToScheme,
+		v1alpha1iploadbalancingtcpfarmserver.SchemeBuilder.AddToScheme,
+		v1alpha1iploadbalancingtcpfrontend.SchemeBuilder.AddToScheme,
+		v1alpha1iploadbalancingtcproute.SchemeBuilder.AddToScheme,
+		v1alpha1iploadbalancingtcprouterule.SchemeBuilder.AddToScheme,
+		v1alpha1iploadbalancingvracknetwork.SchemeBuilder.AddToScheme,
+		v1alpha1ipreverse.SchemeBuilder.AddToScheme,
+		v1alpha1ipservice.SchemeBuilder.AddToScheme,
+		v1alpha1meidentitygroup.SchemeBuilder.AddToScheme,
+		v1alpha1meidentityuser.SchemeBuilder.AddToScheme,
+		v1alpha1meinstallationtemplate.SchemeBuilder.AddToScheme,
+		v1alpha1meinstallationtemplatepartitionscheme.SchemeBuilder.AddToScheme,
+		v1alpha1meinstallationtemplatepartitionschemehardwareraid.SchemeBuilder.AddToScheme,
+		v1alpha1meinstallationtemplatepartitionschemepartition.SchemeBuilder.AddToScheme,
+		v1alpha1meipxescript.SchemeBuilder.AddToScheme,
+		v1alpha1messhkey.SchemeBuilder.AddToScheme,
 		v1alpha1apis.SchemeBuilder.AddToScheme,
 		v1beta1.SchemeBuilder.AddToScheme,
+		v1alpha1vrack.SchemeBuilder.AddToScheme,
+		v1alpha1vrackdedicatedserver.SchemeBuilder.AddToScheme,
+		v1alpha1vrackdedicatedserverinterface.SchemeBuilder.AddToScheme,
+		v1alpha1vrackip.SchemeBuilder.AddToScheme,
+		v1alpha1vrackiploadbalancing.SchemeBuilder.AddToScheme,
 	)
 }
 
